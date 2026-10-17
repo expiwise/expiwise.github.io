@@ -38,5 +38,5 @@ Deleting an item or place removes it from the app. Uninstalling the app deletes 
 
 ## Changes and contact
 
-If this policy changes, the new version will be shown in the app. Questions: feedback@example.com
+If this policy changes, the new version will be shown in the app. Questions: shelfwise.support@gmail.com
 
