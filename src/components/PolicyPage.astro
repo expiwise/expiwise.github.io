@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro';
+import { strings, type Lang } from '../i18n/strings';
+import { Content as EnPolicy } from '../content/privacy/en.md';
+import { Content as JaPolicy } from '../content/privacy/ja.md';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = strings[lang];
+const Policy = lang === 'ja' ? JaPolicy : EnPolicy;
+---
+<Base lang={lang} path="/privacy/" title={`${t.policy.title} — Shelfwise`}>
+  <main class="doc"><article class="prose"><Policy /></article></main>
+</Base>

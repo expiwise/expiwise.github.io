@@ -1,0 +1,20 @@
+{
+  "name": "shelfwise-site",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "sync-policy": "node scripts/sync-policy.mjs",
+    "dev": "npm run sync-policy && astro dev",
+    "build": "npm run sync-policy && astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.2.1",
+    "@fontsource-variable/inter": "^5.1.0",
+    "@fontsource-variable/noto-sans-jp": "^5.1.0",
+    "astro": "~5.18.2",
+    "gsap": "^3.12.5",
+    "lenis": "^1.1.20"
+  }
+}

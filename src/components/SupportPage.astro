@@ -1,0 +1,26 @@
+---
+import Base from '../layouts/Base.astro';
+import site from '../site.json';
+import { strings, type Lang } from '../i18n/strings';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = strings[lang].support;
+---
+<Base lang={lang} path="/support/" title={`${s.title} — Shelfwise`}>
+  <main class="doc">
+    <article class="prose">
+      <h1>{s.title}</h1>
+      <p>{s.intro}</p>
+      <p><a class="btn" href={`mailto:${site.supportEmail}`}>{s.emailLabel}: {site.supportEmail}</a></p>
+      <h2>{s.faqTitle}</h2>
+      <div class="faq">
+        {s.faq.map((f) => (
+          <details>
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </article>
+  </main>
+</Base>

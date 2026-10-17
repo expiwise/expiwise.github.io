@@ -1,0 +1,70 @@
+---
+import '@fontsource-variable/inter';
+import '@fontsource-variable/noto-sans-jp';
+import '../styles/global.css';
+import site from '../site.json';
+import { strings, type Lang } from '../i18n/strings';
+
+interface Props { lang: Lang; path: string; title?: string; description?: string }
+const { lang, path, title, description } = Astro.props;
+const t = strings[lang];
+const base = site.siteUrl.replace(/\/$/, '');
+const enPath = path === '/' ? '/' : path;
+const jaPath = path === '/' ? '/ja/' : `/ja${path}`;
+const here = lang === 'ja' ? jaPath : enPath;
+const other = lang === 'ja' ? enPath : jaPath;
+const prefix = lang === 'ja' ? '/ja' : '';
+const home = lang === 'ja' ? '/ja/' : '/';
+---
+<!doctype html>
+<html lang={t.htmlLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#05090a" />
+    <title>{title ?? t.meta.title}</title>
+    <meta name="description" content={description ?? t.meta.description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/icon.png" />
+    <link rel="canonical" href={base + here} />
+    <link rel="alternate" hreflang="en" href={base + enPath} />
+    <link rel="alternate" hreflang="ja" href={base + jaPath} />
+    <link rel="alternate" hreflang="x-default" href={base + enPath} />
+    <meta property="og:title" content={title ?? t.meta.title} />
+    <meta property="og:description" content={description ?? t.meta.description} />
+    <meta property="og:image" content={base + '/icon.png'} />
+    <meta property="og:type" content="website" />
+    <script is:inline>
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('anim');
+      }
+    </script>
+  </head>
+  <body>
+    <div class="bg-glow" aria-hidden="true"></div>
+    <header class="site-header">
+      <a class="brand" href={home} aria-label="Shelfwise">
+        <img src="/icon.png" alt="" width="32" height="32" />
+        <span>Shelfwise</span>
+      </a>
+      <nav aria-label="Main">
+        <a href={`${home}#features`}>{t.nav.features}</a>
+        <a href={`${home}#privacy`}>{t.nav.privacy}</a>
+        <a href={`${prefix}/support/`}>{t.nav.support}</a>
+        <a class="lang" href={other} hreflang={lang === 'ja' ? 'en' : 'ja'}>{t.footer.lang}</a>
+      </nav>
+    </header>
+    <slot />
+    <footer class="site-footer">
+      <p class="disclaimer">{t.footer.disclaimer}</p>
+      <div class="foot-row">
+        <span>© {new Date().getFullYear()} {t.footer.rights}</span>
+        <span class="foot-links">
+          <a href={`${prefix}/privacy/`}>{t.nav.policy}</a>
+          <a href={`${prefix}/support/`}>{t.nav.support}</a>
+          <a href={`mailto:${site.supportEmail}`}>{site.supportEmail}</a>
+        </span>
+      </div>
+    </footer>
+  </body>
+</html>

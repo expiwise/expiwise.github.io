@@ -1,0 +1,30 @@
+---
+import site from '../site.json';
+import { strings, type Lang } from '../i18n/strings';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const b = strings[lang].badges;
+const stores = [
+  { key: 'google', label: b.google, url: site.playStoreUrl },
+  { key: 'apple', label: b.apple, url: site.appStoreUrl },
+];
+---
+<div class="stores">
+  {stores.map((s) => {
+    const live = Boolean(s.url);
+    const Tag = live ? 'a' : 'span';
+    return (
+      <Tag class={`store ${live ? '' : 'is-soon'}`} href={live ? s.url : undefined} aria-disabled={live ? undefined : 'true'}>
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+          {s.key === 'google'
+            ? <path fill="currentColor" d="M5 3.2v17.6c0 .5.5.8.9.5l14-8.8a.6.6 0 0 0 0-1L5.9 2.7a.6.6 0 0 0-.9.5z"/>
+            : <path fill="currentColor" d="M7 8V7a5 5 0 0 1 10 0v1h2.2c.6 0 1 .5 1 1.100l-.9 11a1.600 1.600 0 0 1-1.600 1.400H6.300a1.600 1.600 0 0 1-1.600-1.400l-.9-11c0-.6.4-1.100 1-1.100H7zm2 0h6V7a3 3 0 0 0-6 0v1z"/>}
+        </svg>
+        <span class="store-text">
+          <small>{live ? b.get : b.soon}</small>
+          <strong>{s.label}</strong>
+        </span>
+      </Tag>
+    );
+  })}
+</div>

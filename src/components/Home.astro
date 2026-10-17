@@ -1,0 +1,178 @@
+---
+import Base from '../layouts/Base.astro';
+import Phone from './Phone.astro';
+import DownloadButtons from './DownloadButtons.astro';
+import { strings, type Lang } from '../i18n/strings';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = strings[lang];
+const screens = ['01-add', '02-items', '03-reminders', '04-locations', '05-stats'];
+const icons = ['M4 5h2v14H4zM8 5h1v14H8zM11 5h3v14h-3zM16 5h1v14h-1zM19 5h1v14h-1z', 'M4 7h16M4 12h10M4 17h6M17 14l2 2 3-4', 'M12 3a6 6 0 0 0-6 6v4l-2 3h16l-2-3V9a6 6 0 0 0-6-6zM10 19a2 2 0 0 0 4 0', 'M5 4h5v5H5zM14 4h5v5h-5zM9.500 15h5v5h-5zM7.500 9v3h9V9M12 12v3', 'M12 3v18M3 12h18M6 6l12 12M18 6L6 18', 'M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0zM3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18'];
+const statusOf = (d: number) => (d < 0 ? 'bad' : d <= 7 ? 'warn' : 'ok');
+const label = (d: number) => (d < 0 ? t.statusDemo.expired : d <= 7 ? t.statusDemo.soon : t.statusDemo.ok);
+---
+<Base lang={lang} path="/">
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow" data-reveal>{t.hero.eyebrow}</p>
+        <h1 class="hero-title" aria-label={`${t.hero.title1} ${t.hero.title2}`}>
+          <span class="line"><span class="line-inner">{t.hero.title1}</span></span>
+          <span class="line"><span class="line-inner grad">{t.hero.title2}</span></span>
+        </h1>
+        <p class="lead" data-reveal>{t.hero.sub}</p>
+        <div data-reveal><DownloadButtons lang={lang} /></div>
+        <p class="note" data-reveal>{t.hero.ctaNote}</p>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="orb orb-a"></div>
+        <div class="orb orb-b"></div>
+        <Phone class="hero-phone">
+          <div class="app">
+            <div class="app-top">
+              <strong>Shelfwise</strong>
+              <span class="app-dot"></span>
+            </div>
+            <div class="app-chips">
+              <span class="chip bad">{t.demoItems.filter((i) => statusOf(i.days) === 'bad').length}</span><span class="chip warn">{t.demoItems.filter((i) => statusOf(i.days) === 'warn').length}</span><span class="chip ok">{t.demoItems.filter((i) => statusOf(i.days) === 'ok').length}</span>
+            </div>
+            <ul class="app-list">
+              {t.demoItems.map((it) => (
+                <li class="app-item" data-days={it.days}>
+                  <div class="app-ico">{it.name.slice(0, 1)}</div>
+                  <div class="app-meta"><b>{it.name}</b><small>{it.place}</small></div>
+                  <span class={`pill ${statusOf(it.days)}`}>
+                    <i class="pill-n">{Math.abs(it.days)}</i><em>{label(it.days)}</em>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Phone>
+        <div class="float-card fc-1"><span class="dot warn"></span>{t.demoItems[0].name} · {t.demoItems[0].days}{lang === 'ja' ? '日' : 'd'}</div>
+        <div class="float-card fc-2"><span class="dot ok"></span>{t.statusDemo.ok}</div>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <section class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        {[0, 1].map(() => (
+          <div class="marquee-row">
+            {t.marquee.map((m) => <span>{m}</span>)}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- STORY (pinned on motion-capable devices, stacked list otherwise) -->
+    <section class="story" id="how">
+      <div class="section-head">
+        <p class="eyebrow">{t.story.eyebrow}</p>
+        <h2>{t.story.title}</h2>
+      </div>
+
+      <div class="story-pin">
+        <div class="story-stage">
+          <div class="story-steps">
+            {t.story.steps.map((s, i) => (
+              <article class="story-step" data-step={i}>
+                <span class="step-n">0{i + 1}</span>
+                <h3>{s.title}</h3>
+                <p>{s.body}</p>
+              </article>
+            ))}
+            <div class="story-dots">
+              {screens.map((_, i) => <i data-dot={i}></i>)}
+            </div>
+          </div>
+          <Phone class="story-phone">
+            <div class="screens">
+              {screens.map((s, i) => (
+                <img
+                  class="screen" data-screen={i} alt=""
+                  src={`/screens/${s}.svg`}
+                  loading="lazy" decoding="async"
+                />
+              ))}
+            </div>
+          </Phone>
+        </div>
+      </div>
+
+      <div class="story-static">
+        {t.story.steps.map((s, i) => (
+          <article class="static-step">
+            <Phone class="static-phone">
+              <img alt="" src={`/screens/${screens[i]}.svg`}
+                loading="lazy" decoding="async" />
+            </Phone>
+            <div><span class="step-n">0{i + 1}</span><h3>{s.title}</h3><p>{s.body}</p></div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features" id="features">
+      <div class="section-head">
+        <p class="eyebrow">{t.features.eyebrow}</p>
+        <h2>{t.features.title}</h2>
+      </div>
+      <div class="grid">
+        {t.features.items.map((f, i) => (
+          <article class="card" data-card>
+            <span class="card-ico">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={icons[i]} /></svg>
+            </span>
+            <h3>{f.title}</h3>
+            <p>{f.body}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- PRIVACY -->
+    <section class="privacy" id="privacy">
+      <div class="privacy-inner">
+        <div class="privacy-copy">
+          <p class="eyebrow">{t.privacy.eyebrow}</p>
+          <h2>{t.privacy.title}</h2>
+          <p class="lead">{t.privacy.body}</p>
+          <ul class="ticks">
+            {t.privacy.points.map((p) => <li data-reveal>{p}</li>)}
+          </ul>
+          <a class="text-link" href={lang === 'ja' ? '/ja/privacy/' : '/privacy/'}>{t.nav.policy} →</a>
+        </div>
+        <div class="privacy-visual" aria-hidden="true">
+          <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
+          <div class="lock">
+            <svg viewBox="0 0 24 24" width="64" height="64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2.500"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+          </div>
+          <span class="sat s1"></span><span class="sat s2"></span><span class="sat s3"></span>
+        </div>
+      </div>
+      <div class="stats">
+        {t.privacy.stats.map((s) => (
+          <div class="stat"><b data-count={s.value}>{s.value}</b><span>{s.label}</span></div>
+        ))}
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="cta-card" data-reveal>
+        <img src="/icon.png" alt="" width="84" height="84" class="cta-icon" />
+        <h2>{t.cta.title}</h2>
+        <p>{t.cta.body}</p>
+        <DownloadButtons lang={lang} />
+      </div>
+    </section>
+  </main>
+  <script>
+    import '../scripts/main.ts';
+  </script>
+</Base>

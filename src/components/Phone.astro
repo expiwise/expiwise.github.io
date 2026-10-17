@@ -1,0 +1,11 @@
+---
+// Device frame. Put the screen content in the default slot.
+interface Props { class?: string }
+const { class: cls = '' } = Astro.props;
+---
+<div class={`phone ${cls}`}>
+  <div class="phone-frame">
+    <div class="phone-island" aria-hidden="true"></div>
+    <div class="phone-screen"><slot /></div>
+  </div>
+</div>
