@@ -9,6 +9,6 @@ listing; take iPhone ones for the App Store. If real screenshots are added to th
 
 ## Taking clean screenshots
 - Run the release build (`flutter run --release`) so there is no DEBUG ribbon.
-- Restore the demo data: Settings > Your data > Restore with `docs/demo/shelfwise-demo-backup.zip` (Replace).
+- Restore the demo data: Settings > Your data > Restore with `docs/demo/expiwise-demo-backup.zip` (Replace).
 - Set Settings > Display > Currency to your currency first, so Stats looks right.
 - Pixel 8/9 emulator, portrait. Emulator toolbar camera icon, or `adb exec-out screencap -p > name.png`.

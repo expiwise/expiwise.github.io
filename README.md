@@ -1,4 +1,4 @@
-# Shelfwise website
+# Expiwise website
 
 Static site: Astro + plain CSS + GSAP (ScrollTrigger) + Lenis. English and Japanese. No tracking, no cookies, no external requests (fonts are bundled).
 
@@ -28,10 +28,10 @@ When the stores go live, put the URLs in `src/site.json` (`playStoreUrl`, `appSt
 - The pinned phone story is in `Home.astro` (markup) + `main.ts` (scroll logic). Add a screen by adding its name to the `screens` list and a step to `strings.ts`.
 
 ## Deploying (GitHub Pages)
-1. Create the `shelfwise-app` GitHub org and an empty repo named `shelfwise-app.github.io`.
+1. Create the `expiwise` GitHub org and an empty repo named `expiwise.github.io`.
 2. Make the contents of this `website/` folder the root of that repo (it already contains `.github/workflows/deploy.yml`).
 3. Repo Settings > Pages > Source: **GitHub Actions**.
-4. Push to `main`. The site appears at https://shelfwise-app.github.io/.
+4. Push to `main`. The site appears at https://expiwise.github.io/.
 5. If you use a different repo or user name, change `siteUrl` in `src/site.json` and `public/robots.txt`.
 
-The privacy policy address to give the stores: `https://shelfwise-app.github.io/privacy/` (Japanese: `/ja/privacy/`).
+The privacy policy address to give the stores: `https://expiwise.github.io/privacy/` (Japanese: `/ja/privacy/`).

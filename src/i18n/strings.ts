@@ -29,16 +29,16 @@ export const strings: Record<Lang, Strings> = {
   en: {
     htmlLang: 'en',
     meta: {
-      title: 'Shelfwise — Know before it expires',
+      title: 'Expiwise — Know before it expires',
       description:
-        'Shelfwise tracks expiry dates for food, medicine and cosmetics, and reminds you in time. Private by design: no account, works offline, your data stays on your phone.',
+        'Expiwise tracks expiry dates for food, medicine and cosmetics, and reminds you in time. Private by design: no account, works offline, your data stays on your phone.',
     },
     nav: { features: 'Features', privacy: 'Privacy', support: 'Support', policy: 'Privacy policy' },
     hero: {
       eyebrow: 'Expiry tracker for iOS & Android',
       title1: 'Know before',
       title2: 'it expires.',
-      sub: 'Shelfwise keeps track of expiry dates for your food, medicine, cosmetics and more — and nudges you before it is too late. No account. Works offline. Your data never leaves your phone.',
+      sub: 'Expiwise keeps track of expiry dates for your food, medicine, cosmetics and more — and nudges you before it is too late. No account. Works offline. Your data never leaves your phone.',
       ctaNote: 'Free to use. No ads. No tracking.',
     },
     badges: { google: 'Google Play', apple: 'App Store', soon: 'Coming soon', get: 'Get it on' },
@@ -69,7 +69,7 @@ export const strings: Record<Lang, Strings> = {
     privacy: {
       eyebrow: 'Privacy',
       title: 'Your pantry is nobody’s business.',
-      body: 'Shelfwise is built so that we could not read your data even if we wanted to. Everything lives on your phone.',
+      body: 'Expiwise is built so that we could not read your data even if we wanted to. Everything lives on your phone.',
       stats: [
         { value: 0, label: 'accounts to create' },
         { value: 0, label: 'trackers or ads' },
@@ -84,7 +84,7 @@ export const strings: Record<Lang, Strings> = {
     },
     cta: {
       title: 'Coming soon to your phone.',
-      body: 'Shelfwise is heading to Google Play and the App Store. Store links will appear here the moment it is live.',
+      body: 'Expiwise is heading to Google Play and the App Store. Store links will appear here the moment it is live.',
     },
     support: {
       title: 'Support',
@@ -92,18 +92,18 @@ export const strings: Record<Lang, Strings> = {
       emailLabel: 'Email us',
       faqTitle: 'Frequently asked questions',
       faq: [
-        { q: 'Does Shelfwise need an internet connection?', a: 'No. Everything works offline. The internet is used only if you scan a barcode to look up a product name.' },
+        { q: 'Does Expiwise need an internet connection?', a: 'No. Everything works offline. The internet is used only if you scan a barcode to look up a product name.' },
         { q: 'Where is my data stored?', a: 'Only on your phone. There is no account and no server that receives your items or photos.' },
         { q: 'How do I move to a new phone?', a: 'Open Settings → Your data → Back up, save the file, then use Restore on the new phone.' },
-        { q: 'Is Shelfwise free?', a: 'Yes. The core features are free, with no ads.' },
-        { q: 'Does Shelfwise tell me if food is safe to eat?', a: 'No. It reminds you of the dates you enter. It does not judge whether something is safe. Always use your own judgement and follow the product’s instructions.' },
+        { q: 'Is Expiwise free?', a: 'Yes. The core features are free, with no ads.' },
+        { q: 'Does Expiwise tell me if food is safe to eat?', a: 'No. It reminds you of the dates you enter. It does not judge whether something is safe. Always use your own judgement and follow the product’s instructions.' },
         { q: 'A scanned date or product name is wrong.', a: 'Scanning only makes suggestions. Edit any field before saving, and tell us so we can improve it.' },
       ],
     },
     policy: { title: 'Privacy policy' },
     footer: {
-      rights: 'Shelfwise. All rights reserved.',
-      disclaimer: 'Shelfwise reminds you of dates you enter; it does not judge whether a product is safe to use or eat.',
+      rights: 'Expiwise. All rights reserved.',
+      disclaimer: 'Expiwise reminds you of dates you enter; it does not judge whether a product is safe to use or eat.',
       lang: '日本語',
     },
     statusDemo: { expired: 'Expired', soon: 'Soon', ok: 'Fresh' },
@@ -119,16 +119,16 @@ export const strings: Record<Lang, Strings> = {
   ja: {
     htmlLang: 'ja',
     meta: {
-      title: 'Shelfwise — 期限切れになる前に気づく',
+      title: 'Expiwise — 期限切れになる前に気づく',
       description:
-        'Shelfwise は食品・医薬品・化粧品などの期限を管理し、期限前にお知らせします。アカウント不要、オフラインで動作、データは端末内だけに保存されます。',
+        'Expiwise は食品・医薬品・化粧品などの期限を管理し、期限前にお知らせします。アカウント不要、オフラインで動作、データは端末内だけに保存されます。',
     },
     nav: { features: '機能', privacy: 'プライバシー', support: 'サポート', policy: 'プライバシーポリシー' },
     hero: {
       eyebrow: 'iOS・Android 対応の期限管理アプリ',
       title1: '期限切れの前に、',
       title2: '気づける。',
-      sub: 'Shelfwise は食品・医薬品・化粧品などの期限を管理し、手遅れになる前にお知らせします。アカウント不要。オフラインで動作。データは端末の外に出ません。',
+      sub: 'Expiwise は食品・医薬品・化粧品などの期限を管理し、手遅れになる前にお知らせします。アカウント不要。オフラインで動作。データは端末の外に出ません。',
       ctaNote: '無料・広告なし・トラッキングなし。',
     },
     badges: { google: 'Google Play', apple: 'App Store', soon: '近日公開', get: 'ダウンロード' },
@@ -159,7 +159,7 @@ export const strings: Record<Lang, Strings> = {
     privacy: {
       eyebrow: 'プライバシー',
       title: 'あなたの暮らしは、あなただけのもの。',
-      body: 'Shelfwise は、私たちがデータを読みたくても読めない作りです。すべてあなたの端末の中にあります。',
+      body: 'Expiwise は、私たちがデータを読みたくても読めない作りです。すべてあなたの端末の中にあります。',
       stats: [
         { value: 0, label: '作成するアカウント' },
         { value: 0, label: 'トラッカー・広告' },
@@ -174,7 +174,7 @@ export const strings: Record<Lang, Strings> = {
     },
     cta: {
       title: 'まもなくあなたのスマホに。',
-      body: 'Shelfwise は Google Play と App Store で公開準備中です。公開と同時に、ここにストアのリンクが表示されます。',
+      body: 'Expiwise は Google Play と App Store で公開準備中です。公開と同時に、ここにストアのリンクが表示されます。',
     },
     support: {
       title: 'サポート',
@@ -192,8 +192,8 @@ export const strings: Record<Lang, Strings> = {
     },
     policy: { title: 'プライバシーポリシー' },
     footer: {
-      rights: 'Shelfwise. All rights reserved.',
-      disclaimer: 'Shelfwise は入力された日付をお知らせするアプリです。製品が安全かどうかの判断は行いません。',
+      rights: 'Expiwise. All rights reserved.',
+      disclaimer: 'Expiwise は入力された日付をお知らせするアプリです。製品が安全かどうかの判断は行いません。',
       lang: 'English',
     },
     statusDemo: { expired: '期限切れ', soon: 'もうすぐ', ok: '余裕あり' },

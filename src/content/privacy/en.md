@@ -1,8 +1,8 @@
-# Shelfwise Privacy Policy
+# Expiwise Privacy Policy
 
 _Last updated: 2026-10-17_
 
-Shelfwise helps you remember expiry dates. This policy explains what the app does with your information. In short: your data stays on your phone, and we do not collect it.
+Expiwise helps you remember expiry dates. This policy explains what the app does with your information. In short: your data stays on your phone, and we do not collect it.
 
 ## Your data stays on your device
 
@@ -38,5 +38,5 @@ Deleting an item or place removes it from the app. Uninstalling the app deletes 
 
 ## Changes and contact
 
-If this policy changes, the new version will be shown in the app. Questions: shelfwise.support@gmail.com
+If this policy changes, the new version will be shown in the app. Questions: expiwise.support@proton.me
 
